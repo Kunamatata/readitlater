@@ -6,4 +6,21 @@
   <div class="col-md-12"><h1>Read It Later</h1></div>
 </div>
 
+<div class="row">
+    Add folder :
+    <form action="{{ path('add_folder') }}" method="post">
+<input type="text" name="folder" placeholder="Folder name" required/>
+            <input type="submit" value="Save" />
+        </form>
+
+        {% for category in categories %}
+            <li><a href="category/{{category}}">{{category}}</a></li>
+        {% endfor %}
+
+        {% for link in links["links"] %}
+            <h1>{{link.title}}</h1>
+            {{link.content}}
+            <br><br>
+        {% endfor %}
+</div>
 {% endblock %}

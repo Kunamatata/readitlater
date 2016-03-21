@@ -9,3 +9,11 @@ link:
 add_link:
     path: /link/add
     defaults: { _controller: AppBundle:Link:add}
+
+folder:
+    path: /category/{category}
+    defaults: {_controller: AppBundle:Folder:index}
+
+add_folder:
+    path: /folder/add
+    defaults: {_controller: AppBundle:Folder:add}

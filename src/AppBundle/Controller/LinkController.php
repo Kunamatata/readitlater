@@ -25,9 +25,11 @@ class LinkController extends Controller {
         $content = "";
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
             $extractionResult = WebArticleExtractor::extractFromURL($url);
+            /*\Doctrine\Common\Util\Debug::dump($extractionResult);*/
             $extractionResult = json_encode($extractionResult);
             $extractionResult = json_decode($extractionResult, true);
             $title = $extractionResult['title'];
+
             foreach ($extractionResult['textBlocks'] as $child) {
                 if ($child['isContent'] === true) {
                     $content = $content . $child['text'];

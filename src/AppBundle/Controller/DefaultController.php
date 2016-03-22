@@ -11,11 +11,11 @@ class DefaultController extends Controller {
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request) {
-        $categoryFile = file_get_contents("/home/etud/calymaxi/readitlater/app/Resources/categories.json");
+        $categoryFile = file_get_contents(__DIR__ ."/app/Resources/categories.json");
         $categories = json_decode($categoryFile, true);
         //var_dump($categories);
 
-        $linksFile = file_get_contents("/home/etud/calymaxi/readitlater/app/Resources/links.json");
+        $linksFile = file_get_contents(__DIR__ ."/app/Resources/links.json");
         $links = json_decode($linksFile, true);
 
         // replace this example code with whatever you need

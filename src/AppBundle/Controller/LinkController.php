@@ -24,7 +24,7 @@ class LinkController extends Controller {
         $title = null;
         $content = "";
 
-        $file = file_get_contents("/home/etud/calymaxi/readitlater/app/Resources/links.json");
+        $file = file_get_contents(__DIR__ . "app/Resources/links.json");
         $json_a = json_decode($file, true);
 
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {

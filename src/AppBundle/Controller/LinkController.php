@@ -24,7 +24,7 @@ class LinkController extends Controller {
         $title = null;
         $content = "";
 
-        $file = file_get_contents(__DIR__ . "app/Resources/links.json");
+        $file = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
         $json_a = json_decode($file, true);
 
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
@@ -35,14 +35,14 @@ class LinkController extends Controller {
             $title = $extractionResult['title'];
 
             foreach ($extractionResult['textBlocks'] as $child) {
-                if ($child['isContent'] === true) {
+                if ($child['isContent'] === false) {
                     $content = $content . $child['text'];
                 }
 
             }
 
             array_push($json_a["links"], array("title" => $title, "content" => $content, "read" => false, "archived" => false, "category" => null));
-            file_put_contents("/home/etud/calymaxi/readitlater/app/Resources/links.json", json_encode($json_a, true));
+            file_put_contents(__DIR__ ."../../../../app/Resources/links.json", json_encode($json_a, true));
         }
         return $this->render('default/add.html.twig', array(
             'url' => $url,

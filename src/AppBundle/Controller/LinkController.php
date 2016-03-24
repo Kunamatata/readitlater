@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use WebArticleExtractor\Extract as WebArticleExtractor;
 
@@ -35,21 +36,74 @@ class LinkController extends Controller {
             $title = $extractionResult['title'];
 
             foreach ($extractionResult['textBlocks'] as $child) {
-                if ($child['isContent'] === false) {
-                    $content = $content . $child['text'];
+                if ($child['isContent'] === true || $child['isContent'] === false && $child['labels'][0] === "POSSIBLY CONTENT") {
+                    $content = $content . "\n" . $child['text'];
                 }
 
             }
 
-            array_push($json_a["links"], array("title" => $title, "content" => $content, "read" => false, "archived" => false, "category" => null));
-            file_put_contents(__DIR__ ."../../../../app/Resources/links.json", json_encode($json_a, true));
+            array_push($json_a["links"], array("title" => $title, "content" => $content, "url" => $url, "archived" => "false", "category" => null));
+            file_put_contents(__DIR__ . "../../../../app/Resources/links.json", json_encode($json_a, true));
         }
-        return $this->render('default/add.html.twig', array(
-            'url' => $url,
-            'title' => $title,
-            'json' => json_encode($extractionResult, JSON_PRETTY_PRINT),
-            'content' => $content,
-        ));
+        $url = $this->get('router')->generate('app');
+
+        return new RedirectResponse($url);
+
     }
 
+    public function deleteAction(Request $request) {
+        $articleUrl = $request->request->get("url");
+
+        $linksFile = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
+        $links = json_decode($linksFile, true);
+        $i = 0;
+        foreach ($links['links'] as $link) {
+            if ($link['url'] == $articleUrl) {
+                array_splice($links['links'], $i, 1);
+            }
+            $i++;
+        }
+
+        //Sauvegarde du fichier json modifié
+        file_put_contents(__DIR__ . "../../../../app/Resources/links.json", json_encode($links, true));
+        return $this->render('default/article_layout.html.twig', array('links' => $links['links']));
+    }
+
+    public function archiveAction(Request $request) {
+        $articleUrl = $request->request->get("url");
+        $archived = $request->request->get("archived");
+        $linksFile = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
+        $links = json_decode($linksFile, true);
+
+        foreach ($links['links'] as $linkKey => $link) {
+            if ($link['url'] == $articleUrl) {
+                $links['links'][$linkKey]['archived'] = ($link['archived'] == "true" ? "false" : "true");
+            }
+        }
+
+        //Sauvegarde du fichier json modifié
+        file_put_contents(__DIR__ . "../../../../app/Resources/links.json", json_encode($links, true));
+        $response = $this->forward('AppBundle:Default:archived', array(
+            'archived' => $archived,
+        ));
+        return $response;
+
+    }
+
+    public function categoryAction(Request $request) {
+        $articleUrl = $request->request->get("url");
+        $category = $request->request->get("category");
+        $linksFile = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
+        $links = json_decode($linksFile, true);
+
+        foreach ($links['links'] as $linkKey => $link) {
+            if ($link['url'] == $articleUrl) {
+                $links['links'][$linkKey]['category'] = $category;
+            }
+        }
+
+        //Sauvegarde du fichier json modifié
+        file_put_contents(__DIR__ . "../../../../app/Resources/links.json", json_encode($links, true));
+        return $this->render('default/article_layout.html.twig', array('links' => $links['links']));
+    }
 }

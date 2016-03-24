@@ -34,7 +34,15 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7"
+        "symfony/phpunit-bridge": "^2.7",
+        "behat/behat": "~3.0.4",
+        "behat/symfony2-extension": "*@stable",
+        "behat/mink-bundle": "*@stable",
+        "behat/mink-browserkit-driver": "*@stable",
+        "behat/mink-zombie-driver": "*@stable",
+        "behat/mink": "^1.7",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "^1.2"
     },
     "scripts": {
         "post-install-cmd": [

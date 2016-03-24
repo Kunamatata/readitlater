@@ -10,6 +10,18 @@ add_link:
     path: /link/add
     defaults: { _controller: AppBundle:Link:add}
 
+delete_link:
+    path: /link/delete
+    defaults: { _controller: AppBundle:Link:delete}
+
+archive_link:
+    path: /link/archive
+    defaults: { _controller: AppBundle:Link:archive}
+
+category_link:
+    path: /link/category
+    defaults: { _controller: AppBundle:Link:category}
+
 folder:
     path: /category/{category}
     defaults: {_controller: AppBundle:Folder:index}
@@ -17,3 +29,11 @@ folder:
 add_folder:
     path: /folder/add
     defaults: {_controller: AppBundle:Folder:add}
+
+read:
+    path: /read/{title}
+    defaults: {_controller: AppBundle:Read:index}
+
+archived:
+    path: /archived
+    defaults: {_controller: AppBundle:Default:archived}

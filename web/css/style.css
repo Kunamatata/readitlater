@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .form-link{
     display:none;
 }
@@ -12,4 +16,35 @@ h1:after {
 
 h1:hover > h1:after{
     background: red;
+}
+
+i{
+    cursor:pointer;
+    transition: all .3s ease-out;
+}
+
+i:hover{
+    color: #d3d3d3;
+}
+
+#popup-category{
+  visibility: hidden;
+  opacity: 0;
+  z-index: -10;
+  padding: 15px;
+
+  background: #c6c6c6;
+  height:125px;
+  width: 100px;
+  border-radius: 2px;
+  position:absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  margin: auto;
+}
+
+.category, .category-popup{
+  display:block;
 }

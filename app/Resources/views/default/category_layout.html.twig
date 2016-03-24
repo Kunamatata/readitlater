@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+  <div class="col-md-12"><h1>{{categoryName}}</h1></div>
+</div>
+
+<div class="row">
+        <div id="articles">
+            {{ include('@default/article_layout.html.twig') }}
+        </div>
+</div>
+{% endblock %}

@@ -43,18 +43,18 @@ Exécuter les tests avec la commande suivante à la racine du projet :
 
 ## Fonctionnalités du site
 
-Extraction et sauvegarde d'un article. Cliquez sur le bouton “Add Link”, renseigner le lien dans le champ affiché, puis valider.
-Affichage des titres des différents articles sauvegardés non lus sur la page principale.
-Possibilité de lire l'article extrait en entier en appuyant sur le bouton « Read more... » en dessous de chaque titre d'article.
-Suppression d'un article. Cliquez sur la croix en bas des articles affichés (pas de rafraîchissement car la suppression d'un article réalisée avec Ajax).
-Archivage d'un article. Cliquez sur le bouton d'archivage à gauche de chaque article (pas de rafraîchissement car l'archivage est réalisé avec Ajax).
-Visualiser les articles archivés. Cliquez le bouton « Archived » en haut de la page (pas de rafraîchissement car l'affichage des bons articles est effectué avec Ajax).
-Rajouter une nouvelle catégorie pour classifier les articles. Pour cela, cliquer sur « Add Folder », et renseignez le nom de la catégorie.
-Classifier un article dans une catégorie. Cliquez sur le bouton de classification en dessous du nom de l'article, puis sélectionnez la catégorie dans laquelle vous souhaitez classer l'article.
-Visualiser tous les articles liés à une catégorie. Cliquez sur le nom de la catégorie (pas de rafraîchissement car l'affichage des bons articles est réalisé avec Ajax).
-Utiliser une extension pour sauvegarder un article. Cliquer sur le bouton de l'extension sur une page afin d'en extraire le possible article.
-Mise en place d'un design minimal.
-Versioning du projet.
+- Extraction et sauvegarde d'un article. Cliquez sur le bouton “Add Link”, renseigner le lien dans le champ affiché, puis valider.
+- Affichage des titres des différents articles sauvegardés non lus sur la page principale.
+- Possibilité de lire l'article extrait en entier en appuyant sur le bouton « Read more... » en dessous de chaque titre d'article.
+- Suppression d'un article. Cliquez sur la croix en bas des articles affichés (pas de rafraîchissement car la suppression d'un article réalisée avec Ajax).
+- Archivage d'un article. Cliquez sur le bouton d'archivage à gauche de chaque article (pas de rafraîchissement car l'archivage est réalisé avec Ajax).
+- Visualiser les articles archivés. Cliquez le bouton « Archived » en haut de la page (pas de rafraîchissement car l'affichage des bons articles est effectué avec Ajax).
+- Rajouter une nouvelle catégorie pour classifier les articles. Pour cela, cliquer sur « Add Folder », et renseignez le nom de la catégorie.
+- Classifier un article dans une catégorie. Cliquez sur le bouton de classification en dessous du nom de l'article, puis sélectionnez la catégorie dans laquelle vous souhaitez classer l'article.
+- Visualiser tous les articles liés à une catégorie. Cliquez sur le nom de la catégorie (pas de rafraîchissement car l'affichage des bons articles est réalisé avec Ajax).
+- Utiliser une extension pour sauvegarder un article. Cliquer sur le bouton de l'extension sur une page afin d'en extraire le possible article.
+- Mise en place d'un design minimal.
+- Versioning du projet.
 
 Le stockage des données a été réalisé à partir de deux fichiers json. Le premier, links.json, sauvegarde l'ensemble des articles, avec pour chaque article son titre, son contenu, son url, le fait qu'il soit archivé ou non, et sa possible catégorie. Le second, categories.json, sauvegarde le nom des différentes catégories de l'utilisateur.
 
@@ -62,17 +62,17 @@ Le stockage des données a été réalisé à partir de deux fichiers json. Le p
 
 Développement de tests testant :
 
-Le bon affichage de la page principale.
-Le bon ajout d'un article.
-La possibilité de visualiser la page d'un article extrait.
-L'archivage et le désarchivage d'un article.
-La possibilité de catégoriser un article.
-La bonne suppression d'un article.
+- Le bon affichage de la page principale.
+- Le bon ajout d'un article.
+- La possibilité de visualiser la page d'un article extrait.
+- L'archivage et le désarchivage d'un article.
+- La possibilité de catégoriser un article.
+- La bonne suppression d'un article.
 
 Tous les tests sont positifs après exécution.
 
 ## Ce qui n'a pas été réalisé
 
-La suppression d'une catégorie, car nous n'avons pensé à cette fonctionnalité qu'à la fin.
-La possibilité de supprimer la catégorie d'un article pour qu'il ne soit plus associé à aucune catégorie. Si nous l'avions implémenté, nous aurions rajouté une possibilité dans la liste des possibilités de catégories, du type « Aucune ».
-L'API. Nous avons préféré prendre le temps d'apprendre à utiliser Symfony ainsi que la mise en place des tests, et avons volontairement délaissé l'API dans cette optique.
+- La suppression d'une catégorie, car nous n'avons pensé à cette fonctionnalité qu'à la fin.
+- La possibilité de supprimer la catégorie d'un article pour qu'il ne soit plus associé à aucune catégorie. Si nous l'avions implémenté, nous aurions rajouté une possibilité dans la liste des possibilités de catégories, du type « Aucune ».
+- L'API. Nous avons préféré prendre le temps d'apprendre à utiliser Symfony ainsi que la mise en place des tests, et avons volontairement délaissé l'API dans cette optique.

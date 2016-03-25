@@ -2,6 +2,7 @@ default:
   extensions:
     Behat\Symfony2Extension: ~
     Behat\MinkExtension:
+      selenium2: ~
       sessions:
         default:
           symfony2: ~

@@ -47,6 +47,10 @@ a:hover{
     right: 10px;
 }
 
+.fa{
+  cursor: pointer;
+}
+
 h1{
   margin: 5px 0;
   padding: 0;

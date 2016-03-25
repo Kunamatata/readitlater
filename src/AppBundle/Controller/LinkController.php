@@ -49,7 +49,6 @@ class LinkController extends Controller {
 
         return new RedirectResponse($url);
 
-
     }
 
     public function deleteAction(Request $request) {

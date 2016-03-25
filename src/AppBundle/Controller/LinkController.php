@@ -21,12 +21,18 @@ class LinkController extends Controller {
 
     public function addAction(Request $request) {
         $url = $request->request->get('url');
+        $urlGET = $request->query->get('url');
         $extractionResult = null;
         $title = null;
         $content = "";
 
         $file = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
         $json_a = json_decode($file, true);
+
+        if($urlGET != null)
+        {
+            $url = $urlGET;
+        }
 
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
             $extractionResult = WebArticleExtractor::extractFromURL($url);

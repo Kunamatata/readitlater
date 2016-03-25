@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 class FolderController extends Controller {
 
     public function indexAction($category) {
-        var_dump($category);
         $categoryLinks = array();
         $linksFile = file_get_contents(__DIR__ . "../../../../app/Resources/links.json");
         $links = json_decode($linksFile, true);

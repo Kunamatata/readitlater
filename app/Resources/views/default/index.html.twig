@@ -4,19 +4,12 @@
 {% block body %}
 
 <div class="row">
-  <div class="col-md-12"><h1 class="title">Read It Later</h1></div>
+    <h1 class="title">Articles</h1>
 </div>
 
 <div class="row">
-    Add folder :
-    <form action="{{ path('add_folder') }}" method="post">
-<input type="text"  name="Folder Name" placeholder="Folder name" required/>
-            <input type="submit" value="Save" name="Folder Save"/>
-        </form>
-
-        <div id="articles">
-            {{ include('@default/article_layout.html.twig') }}
-        </div>
-
+    <div id="articles">
+        {{ include('@default/article_layout.html.twig') }}
+    </div>
 </div>
 {% endblock %}

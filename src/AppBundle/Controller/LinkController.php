@@ -41,13 +41,14 @@ class LinkController extends Controller {
                 }
 
             }
-
             array_push($json_a["links"], array("title" => $title, "content" => $content, "url" => $url, "archived" => "false", "category" => null));
             file_put_contents(__DIR__ . "../../../../app/Resources/links.json", json_encode($json_a, true));
         }
+
         $url = $this->get('router')->generate('app');
 
         return new RedirectResponse($url);
+
 
     }
 

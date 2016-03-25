@@ -14,20 +14,31 @@
     </head>
     <body>
     <div class="form-link" id="form-link">
-    <form action="{{ path('add_link') }}" method="post" id="article-form">
-<input type="text" name="Article Url" placeholder="Your link" required/>
+        <i class="fa fa-times close-popup"></i>
+        <form action="{{ path('add_link') }}" method="post" id="article-form">
+            <input type="text" name="url" placeholder="Your link" required/>
             <input type="submit" value="Save" name="Save Article"/>
         </form>
-        </div>
+    </div>
+    <div class="form-category" id="form-folder">
+        <i class="fa fa-times close-popup"></i>
+        <form action="{{ path('add_folder') }}" method="post">
+            <input type="text"  name="Folder Name" placeholder="Folder name" required/>
+            <input type="submit" value="Save" name="Folder Save"/>
+        </form>
+    </div>
     <nav class="navbar navbar-default">
     <ul class="nav navbar-nav navbar-left">
-        <li><a href="#" id="add-link" title="Add Link">Add Link</a></li>
         <li><a href="#" id="get-archived" data-archived="false">Archived</a></li>
+        <li><a href="#" id="add-link" title="Add Link">Add Link</a></li>
+        <li><a href="#" id="add-folder" title="Add Folder">Add Folder</a></li>
     </ul>
     </nav>
-    {{ render(controller(
-        'AppBundle:Folder:getCategories'
-    )) }}
+    <div id="category-container">
+        {{ render(controller(
+            'AppBundle:Folder:getCategories'
+        )) }}
+    </div>
     <div class="container">
         {% block body %}{% endblock %}
     </div>

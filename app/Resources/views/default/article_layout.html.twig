@@ -1,7 +1,9 @@
 {% for link in links %}
-    <h1 class="article-title">{{link.title}}</h1>
-    <a target="_blank" href="/read/{{link.title}}">Read more...</a>
-    <i data-article="{{link.url}}" class="fa fa-archive archive-article"></i>
-    <i data-article="{{link.url}}" class="fa fa-tags"></i>
-    <i data-article="{{link.url}}" class="fa fa-times delete-article"></i>
+    <div class="article">
+        <h1 class="article-title">{{link.title}}</h1>
+        <a target="_blank" href="/read/{{link.title}}">Read more...</a>
+        <i data-article="{{link.url}}" class="fa fa-archive archive-article"></i>
+        <i data-article="{{link.url}}" class="fa fa-tags"></i>
+        <i data-article="{{link.url}}" class="fa fa-times delete-article"></i>
+    </div>
 {% endfor %}

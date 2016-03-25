@@ -4,20 +4,16 @@
 
 Symfony 2.8
 
-Composer
-
-PHP
-
-Ajax
+- Composer
+- PHP
+- Ajax
 
 
 ## Tests
 
-Behat
-
-Mink
-
-Selenium
+- Behat
+- Mink
+- Selenium
 
 
 # Instructions de mise en route :
